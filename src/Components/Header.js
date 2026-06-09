@@ -30,14 +30,14 @@ const Header = ({ email }) => {
   }
 
   return (
-    <div className={`w-full px-8 py-8 flex items-center justify-between absolute top-0 left-0 z-50 ${!user ? 'bg-gradient-to-b from-black to-red-950' : 'bg-none'}`}>
+    <div className={`flex-col w-full px-8 py-8 flex items-center justify-between absolute top-0 left-0 z-50 ${!user ? 'bg-gradient-to-b from-black to-red-950' : 'bg-black sm: bg-none'} sm:flex-row`}>
       <img 
         src={Logo_Url} 
         alt="Netflix Logo" 
         className="h-10 w-auto object-contain"
       />
       {user && (
-        <div className="flex items-center">
+        <div className="flex items-center mt-4 sm:mt-0">
           {gptSearchClick && (
             <select onChange={handleLanguageChange} className="bg-black text-white border border-gray-600 rounded-lg px-2 py-2 mr-4">
             {languages.map((lang) => (
@@ -49,9 +49,8 @@ const Header = ({ email }) => {
           <button onClick={handleGptSearchClick} className="bg-purple-900 rounded-lg text-red-500 hover:text-white cursor-pointer px-4 py-2 flex items-center gap-2">
               {gptSearchClick ? 'Home' : 'GPTSearch'}
           </button>
-          <div className="text-red-500 font-semibold ml-4">Welcome,  {user.displayName}</div>
-          <img src={User_Logo(email)} alt="User Icon" className="h-16 w-16 rounded-full ml-4 mx-4"/>
-          <button onClick={handleSignOut} className="text-red-500 hover:text-white cursor-pointer px-4 py-2">
+          <img src={User_Logo(email)} alt="User Icon" className="h-16 w-16 rounded-full ml-10 hidden sm:block"/>
+          <button onClick={handleSignOut} className="text-red-500 hover:text-white cursor-pointer py-2 px-2">
             Sign Out
           </button>
         </div>

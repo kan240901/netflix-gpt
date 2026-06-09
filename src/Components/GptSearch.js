@@ -41,8 +41,8 @@ const GptSearch = async() => {
   return (
     <div className="flex items-center justify-center">
       <div className="w-[100%] mt-40 mx-auto flex items-center justify-center">
-          <input ref={searchText} className="w-[30%] p-2 bg-black text-white placeholder:text-gray-500 border border-gray-600" type="text" placeholder={lang[langCode].SearchPlaceHolder} />
-          <button onClick={handleGptSearchClick} className="bg-red-600 text-white py-2 px-4 mx-4 rounded hover:bg-red-700">{lang[langCode].SearchButton}</button>    
+          <input ref={searchText} className="md:w-[30%] w-[80%] m-4 p-2 bg-black text-white placeholder:text-gray-500 border border-gray-600" type="text" placeholder={lang[langCode].SearchPlaceHolder} />
+          <button onClick={handleGptSearchClick} className="bg-red-600 text-white py-2 mr-4 px-4 rounded hover:bg-red-700">{lang[langCode].SearchButton}</button>    
       </div>
     </div>
   )

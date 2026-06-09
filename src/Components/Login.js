@@ -106,7 +106,7 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen w-screen bg-gradient-to-b from-red-950 to-black ">
+    <div className="h-screen w-screen bg-gradient-to-b overflow-hidden from-red-950 to-black ">
         <Header email={email} />
         <div className='flex my-10 justify-center min-h-screen pt-20'>
             <form onSubmit={handleSubmit} className='flex flex-col items-center space-y-4'>

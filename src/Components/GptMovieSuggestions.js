@@ -10,7 +10,7 @@ const GptMovieSuggestions = () => {
   if (!gptMovieSuggestion) return null;
   
   return (
-    <div className='-my-96'>
+    <div className="w-screen py-8">
       {gptMovieSuggestion.map((movies, index) => (
         <MovieList movies={movies} title={gptOutputMovies[index]} />
       ))}

@@ -23,9 +23,9 @@ const MovieList = ({movies, title }) => {
   };
 
   return (
-    <div className="w-full px-4 py-8 group">
+    <div className="w-full px-4 py-8 ">
         <h2 className="text-white text-xl font-bold mb-4 px-4">{title}</h2>
-        <div className="relative flex items-center">
+        <div className="relative flex items-center group">
           <button 
             onClick={() => scroll('left')}
             className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-white z-10 px-3 py-12 rounded-l-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -35,7 +35,7 @@ const MovieList = ({movies, title }) => {
           
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-hidden px-4 space-x-4 scroll-smooth w-full"
+            className="flex overflow-x-scroll gap-4 scroll-smooth overflow-y-hidden"
           >
             {movies?.map((movie) => (
                 <MovieCard key={movie.id} movie={movie} />
