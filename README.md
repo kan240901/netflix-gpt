@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+NetflixGPT 🎬🤖
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NetflixGPT is a modern AI-powered movie recommendation web application inspired by the Netflix user experience. The application integrates TMDB APIs, OpenAI GPT APIs, Firebase Authentication, and Redux Toolkit to deliver personalized movie discovery and intelligent movie suggestions through natural language prompts.
 
-## Available Scripts
+🚀 Key Features
+🔐 Authentication System
 
-In the project directory, you can run:
+Implemented secure user authentication using Firebase Authentication.
 
-### `npm start`
+Functionalities:
+User Registration (Sign Up)
+User Login (Sign In)
+User Logout (Sign Out)
+Authentication State Handling
+Protected Routes
+Form Validation
+Responsive Authentication UI
+🎥 Movie Browsing Experience
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Integrated with TMDB (The Movie Database) APIs to fetch and display real-time movie data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Categories Included:
+Now Playing
+Popular Movies
+UI Features:
+Netflix-inspired layout
+Horizontal scrolling movie sections
+Responsive design for all screen sizes
+Smooth user interaction and animations
+🤖 AI-Powered GPT Search
 
-### `npm test`
+Implemented an intelligent movie recommendation system using the OpenAI GPT API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Workflow:
+User enters a natural language query or mood
+GPT processes the input
+Suggested movie titles are generated
+TMDB APIs fetch detailed movie information
+Recommended movies are displayed dynamically
+Example Query:
+"Suggest suspense thriller movies similar to Inception"
+🌐 Multi-Language Support
 
-### `npm run build`
+Implemented multilingual support for enhanced accessibility.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Supported Languages:
+English
+Hindi
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Users can dynamically switch application language during GPT-based movie searches.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🧠 State Management using Redux Toolkit
 
-### `npm run eject`
+Redux Toolkit is used for centralized and scalable state management across the application.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Redux Slices Implemented
+userSlice
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Manages:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+User authentication data
+User session information
+movieSlice
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Stores:
 
-## Learn More
+TMDB movie categories
+Movie lists and related data
+gptSlice
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Handles:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+GPT search state
+AI-generated movie suggestions
+GPT search visibility and responses
+OpenAISlice
 
-### Code Splitting
+Manages:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+OpenAI API interactions
+GPT response handling
+appStore
 
-### Analyzing the Bundle Size
+Centralized Redux store configuration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+🛠️ Technology Stack
+Frontend
+React.js
+Redux Toolkit
+Tailwind CSS
+React Router DOM
+Authentication
+Firebase Authentication
+APIs & Services
+TMDB API
+OpenAI API
 
-### Making a Progressive Web App
+📂 Project Structure
+src/
+│
+├── components/
+├── hooks/
+├── pages/
+├── assets/
+├── utils/
+│   ├── appStore.js
+│   ├── movieSlice.js
+│   ├── userSlice.js
+│   ├── gptSlice.js
+│   ├── OpenAIS.js
+│   ├── Firebase.js
+│   └── Constants.js
+│
+├── App.js
+└── index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🔑 Environment Variables
 
-### Advanced Configuration
+Create a .env file in the root directory and configure the following variables:
+REACT_APP_TMDB_KEY=your_tmdb_api_key
+REACT_APP_OPENAI_KEY=your_openai_api_key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+⚙️ Installation & Setup
+Clone the Repository
+git clone <repository-url>
+Install Dependencies
+npm install
+Start Development Server
+npm start
 
-### Deployment
+🙌 Acknowledgements
+TMDB API
+OpenAI API
+Firebase
+Netflix UI Inspiration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+📜 License
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is developed for educational and learning purposes.
