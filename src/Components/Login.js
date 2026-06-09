@@ -2,8 +2,10 @@ import React, {useState } from 'react'
 import Header from './Header'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/Firebase';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -17,6 +19,8 @@ const Login = () => {
   }
 
   const handleEmailChange = (e) => {
+    console.log(process.env.REACT_APP_OPENAI_KEY);
+    console.log(process.env.REACT_APP_TMDB_KEY);
     const value = e.target.value
     setEmail(value)
     
@@ -102,10 +106,10 @@ const Login = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-red-950 to-black">
-      <Header email={email} />
-        <div>
-            <form onSubmit={handleSubmit} className='flex flex-col items-center mt-16 space-y-4'>
+    <div className="min-h-screen w-screen bg-gradient-to-b from-red-950 to-black ">
+        <Header email={email} />
+        <div className='flex my-10 justify-center min-h-screen pt-20'>
+            <form onSubmit={handleSubmit} className='flex flex-col items-center space-y-4'>
                 <div className='text-white text-4xl font-bold'>Enter your info to {signUp}</div>
                 {signUp === "Sign Up" && (
                     <input 

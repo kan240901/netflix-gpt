@@ -1,13 +1,15 @@
-import React from 'react'
-import { addUser, removeUser } from '../utils/UserSlice'
+import {React, useState} from 'react'
+import { addUser, removeUser, languageChange } from '../utils/UserSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { auth } from '../utils/Firebase'
 import { signOut } from 'firebase/auth'
-import { Logo_Url, User_Logo } from '../utils/Constants'
+import { Logo_Url, User_Logo, languages } from '../utils/Constants'
+import { gptSearchClick as toggleGptSearch } from '../utils/gptSlice'
 
 const Header = ({ email }) => {
   const dispatch = useDispatch()
   const user = useSelector((state) => state.user)
+  const gptSearchClick = useSelector((state) => state.gptSearch?.gptSearchClick);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -19,8 +21,16 @@ const Header = ({ email }) => {
       })
   }
 
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearch(!gptSearchClick))
+  }
+
+  const handleLanguageChange = (e) => {
+    dispatch(languageChange(e.target.value))
+  }
+
   return (
-    <div className="w-full px-8 py-8 flex items-center justify-between bg-gradient-to-b from-red-950 to-black bg-opacity-90">
+    <div className={`w-full px-8 py-8 flex items-center justify-between absolute top-0 left-0 z-50 ${!user ? 'bg-gradient-to-b from-black to-red-950' : 'bg-none'}`}>
       <img 
         src={Logo_Url} 
         alt="Netflix Logo" 
@@ -28,9 +38,20 @@ const Header = ({ email }) => {
       />
       {user && (
         <div className="flex items-center">
+          {gptSearchClick && (
+            <select onChange={handleLanguageChange} className="bg-black text-white border border-gray-600 rounded-lg px-2 py-2 mr-4">
+            {languages.map((lang) => (
+              <option key={lang.code} value={lang.code}>
+                {lang.label}
+              </option>
+            ))}
+          </select>)}
+          <button onClick={handleGptSearchClick} className="bg-purple-900 rounded-lg text-red-500 hover:text-white cursor-pointer px-4 py-2 flex items-center gap-2">
+              {gptSearchClick ? 'Home' : 'GPTSearch'}
+          </button>
           <div className="text-red-500 font-semibold ml-4">Welcome,  {user.displayName}</div>
-          <img src={User_Logo(email)} alt="User Icon" className="h-16 w-16 rounded-full ml-4 mx-14"/>
-          <button onClick={handleSignOut} className="text-red-500 hover:text-white">
+          <img src={User_Logo(email)} alt="User Icon" className="h-16 w-16 rounded-full ml-4 mx-4"/>
+          <button onClick={handleSignOut} className="text-red-500 hover:text-white cursor-pointer px-4 py-2">
             Sign Out
           </button>
         </div>

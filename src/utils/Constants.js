@@ -6,6 +6,28 @@ export const api_get_options = {
     method: 'GET',
     headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNGQ4YTM3MjY3N2Q5ZmI0ZjY5NzA0ZjNlNDQ2ZTZiNyIsIm5iZiI6MTc4MDMwNTI0MC4xMTIsInN1YiI6IjZhMWQ0ZDU4NzZjZThkZjVmNTRhNjg3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TBqGzETHbP88Uilv2O8pBLLg3eCZ8zlobd7YrY2_W8E'
+    Authorization: 'Bearer ' + process.env.REACT_APP_TMDB_KEY
     }
 };
+
+export const Img_CDN_Url = "https://image.tmdb.org/t/p/original";
+
+export const LoginBgImage = "https://d3ghupt9z9s6o0.cloudfront.net/app/uploads/2017/04/13100509/Netflix-Background.jpg";
+
+export const languages = [
+    { code: 'en', label: 'English' },
+    { code: 'hi', label: 'Hindi' }
+  ];
+
+export const lang = {
+    "en":{
+        SearchPlaceHolder: "Search for movies, TV shows, and more...",
+        SearchButton: "Search"
+    },
+    "hi":{
+        SearchPlaceHolder: "फिल्में, टीवी शो और अधिक के लिए खोजें...",
+        SearchButton: "खोजें"
+    }
+}
+
+export const GPTApiKey = process.env.REACT_APP_OPENAI_KEY;
